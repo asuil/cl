@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 /**
  * div extended to have functionalities as shortcuts
@@ -45,9 +45,11 @@ const Div = ({
         justifyContent: 'center',
       } : style}
     >
-      <div>
-        {children}
-      </div>
+      {centerContent ? (
+        <div>
+          {children}
+        </div>
+      ) : children}
     </div>
   );
 };

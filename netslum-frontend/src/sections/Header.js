@@ -1,5 +1,5 @@
-import Div from "../components/Div";
-import Text from "../components/Text";
+import Div from "../wrappers/Div";
+import Text from "../wrappers/Text";
 
 import { Color as c, Font as f } from "../utils";
 
