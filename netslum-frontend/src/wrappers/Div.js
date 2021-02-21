@@ -2,7 +2,9 @@ import { useState } from "react";
 
 /**
  * div extended to have functionalities as shortcuts
- * @param bc:             <string>            css background-color
+ * @param bgcolor:        <string>            css background-color
+ * @param color:          <string>            css background-color
+ * @param onClick:        <func>              html onClick
  * @param p:              <integer>           css padding
  * @param px:             <integer>           css padding-left & padding-right
  * @param py:             <integer>           css padding-top & padding-bottom
@@ -17,6 +19,7 @@ import { useState } from "react";
 const Div = ({
   bgcolor,
   color,
+  onClick,
   p, px, py,
   m,
   w,
@@ -44,6 +47,7 @@ const Div = ({
         display: 'flex',
         justifyContent: 'center',
       } : style}
+      onClick={onClick}
     >
       {centerContent ? (
         <div>

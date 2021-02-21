@@ -9,3 +9,10 @@ export const Font = {
   MONOSPACE: 'Space Mono, monospace',
   REGULAR: 'Poppins, sans-serif',
 };
+
+export const Direction = {
+  RIGHT: 'right',
+  LEFT: 'left',
+  TOP: 'top',
+  BOTTOM: 'bottom',
+};
