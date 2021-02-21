@@ -7,7 +7,7 @@ const Slide = ({
   auto,
   children,
 }) => {
-  const [position, setPosition] = useState(show && !auto ? 0 : -10000);
+  const [position, setPosition] = useState(show && !auto ? 0 : -1000);
   const [style, setStyle] = useState({
     position: 'relative',
     transition: `${from} 1.5s`,
@@ -34,8 +34,8 @@ const Slide = ({
 
   const out = () => (
     (from === d.RIGHT || from === d.LEFT)
-      ? -slideRef.current.clientWidth
-      : -slideRef.current.clientHeight
+      ? - (slideRef.current.clientWidth + 10)
+      : - (slideRef.current.clientHeight + 10)
   );
 
   return (

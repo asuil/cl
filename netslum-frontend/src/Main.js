@@ -6,10 +6,10 @@ import Layer from "./wrappers/Layer";
 
 const Main = () => (
   <LayerWrap>
-    <Layer>
+    <Body />
+    <Layer top>
       <Header />
     </Layer>
-    <Body />
     <Layer bottom>
       <Footer />
     </Layer>

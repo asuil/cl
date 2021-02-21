@@ -1,59 +1,45 @@
 import { useState } from "react";
 
-/**
- * div extended to have functionalities as shortcuts
- * @param bgcolor:        <string>            css background-color
- * @param color:          <string>            css background-color
- * @param onClick:        <func>              html onClick
- * @param p:              <integer>           css padding
- * @param px:             <integer>           css padding-left & padding-right
- * @param py:             <integer>           css padding-top & padding-bottom
- * @param m:              <integer>           css margin
- * @param w:              <integer/string>    css width
- * @param s:              <integer>           pixels to multiply p and m for
- * @param centerContent:  <boolean>           centers content
- * @param children:       <array(component)>  React children
- * @returns {JSX.Element} Div wrapper
- * @constructor --
- */
 const Div = ({
   bgcolor,
   color,
+  flex,
   onClick,
-  p, px, py,
-  m,
-  w,
-  s,
-  centerContent,
+  p, px, py, pt, pb, pr, pl,
+  m, mx, my, mt, mb, mr, ml,
+  w, h,
+  spacing,
+  style,
   children,
 }) => {
-  const [spacingStep] = useState(s || 8);
+  const [spacingStep] = useState(spacing || 8);
   const [padding] = useState(p * spacingStep || 0);
-  const [style] = useState({
+  const [margin] = useState(m * spacingStep || 0);
+  const [finalStyle] = useState({
+    display: flex ? 'flex' : 'block',
     backgroundColor: bgcolor || 'transparent',
     color: color || 'inherit',
     padding: padding,
-    paddingLeft: px * spacingStep || padding,
-    paddingRight: px * spacingStep || padding,
-    paddingTop: py * spacingStep || padding,
-    paddingBottom: py * spacingStep || padding,
-    margin: m * spacingStep || 0,
+    paddingLeft: pl * spacingStep || px * spacingStep || padding,
+    paddingRight: pr * spacingStep || px * spacingStep || padding,
+    paddingTop: pt * spacingStep || py * spacingStep || padding,
+    paddingBottom: pb * spacingStep || py * spacingStep || padding,
+    margin: margin,
+    marginLeft: ml * spacingStep || mx * spacingStep || margin,
+    marginRight: mr * spacingStep || mx * spacingStep || margin,
+    marginTop: mt * spacingStep || my * spacingStep || margin,
+    marginBottom: mb * spacingStep || my * spacingStep || margin,
     width: w || 'auto',
+    height: h || 'auto',
+    cursor: onClick ? 'pointer' : 'inherit',
+    ...style,
   });
   return (
     <div
-      style={centerContent ? {
-        ...style,
-        display: 'flex',
-        justifyContent: 'center',
-      } : style}
+      style={finalStyle}
       onClick={onClick}
     >
-      {centerContent ? (
-        <div>
-          {children}
-        </div>
-      ) : children}
+      {children}
     </div>
   );
 };
