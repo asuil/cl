@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import Slide from "../wrappers/Slide";
-import {Color as c, Direction as d} from "../utils";
+import {Color as c, Direction as d, Font as f} from "../utils";
 import Div from "../wrappers/Div";
+import Text from "../wrappers/Text";
 import Fade from "../wrappers/Fade";
 import LayerWrap from "../wrappers/LayerWrap";
 import Layer from "../wrappers/Layer";
@@ -28,11 +29,13 @@ const Guide = () => {
   return (
     <Div flex onClick={() => !loading && (current === last ? console.log('register') : setCurrent(current + 1))}>
       <Slide auto={2000} from={d.RIGHT}>
-        <Div bgcolor={c.BLACK} mt={5} w={190}>
+        <Div bgcolor={c.BLACK} mt={5} w={250}>
           <Fade auto={3000}>
             <LayerWrap>
               <Div pl={2} pr={3} pt={2} pb={3}>
-                {dialogues[current]}
+                <Text font={f.REGULAR}>
+                  {dialogues[current]}
+                </Text>
               </Div>
               <Layer bottom right>
                 <Div pr={1}>
