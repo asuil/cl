@@ -39,8 +39,8 @@ const Slide = ({
   );
 
   return (
-    <div style={{ overflow: 'hidden' }}>
-      <div ref={slideRef} style={style}>
+    <div aria-label="outerSlide" style={{ overflow: 'hidden' }}>
+      <div aria-label="innerSlide" ref={slideRef} style={style}>
         {children}
       </div>
     </div>

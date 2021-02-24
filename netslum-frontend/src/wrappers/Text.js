@@ -6,10 +6,11 @@ const Text = ({
 }) => {
   return (
     <div
+      aria-label="Text"
       style={{
-        fontSize: `${size}rem` || 'inherit',
-        fontFamily: font || 'inherit',
-        color: color || 'inherit',
+        fontSize: size && `${size}rem`,
+        fontFamily: font,
+        color: color,
       }}
     >
       {children}

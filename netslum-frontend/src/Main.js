@@ -1,19 +1,22 @@
 import Header from "./sections/Header";
 import Body from "./sections/Body";
 import Footer from "./sections/Footer";
-import LayerWrap from "./wrappers/LayerWrap";
-import Layer from "./wrappers/Layer";
+import Div from "./wrappers/Div";
+import Text from "./wrappers/Text";
+import Guide from "./components/Guide";
+import {Color as c, Font as f} from "./utils";
 
 const Main = () => (
-  <LayerWrap>
+  <Text color={c.WHITE} font={f.REGULAR}>
     <Body />
-    <Layer top>
+    <Footer />
+    <Div top>
       <Header />
-    </Layer>
-    <Layer bottom>
-      <Footer />
-    </Layer>
-  </LayerWrap>
+    </Div>
+    <Div right bottom p={5}>
+      <Guide />
+    </Div>
+  </Text>
 );
 
 export default Main;

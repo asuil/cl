@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 const Fade = ({
     show,
     auto,
+    duration,
     children,
   }) => {
   const [opacity, setOpacity] = useState(show && !auto ? 100 : 0);
@@ -18,7 +19,7 @@ const Fade = ({
   }, [show, auto]);
 
   return (
-    <div style={{ opacity: opacity, transition: `opacity 1.5s` }}>
+    <div aria-label="Fade" style={{ opacity: opacity, transition: `opacity ${duration || 1500}ms` }}>
       {children}
     </div>
   );
