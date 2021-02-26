@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { arrayOf, bool, element, number, oneOfType } from 'prop-types';
 
 const Fade = ({
   show,
@@ -24,6 +25,13 @@ const Fade = ({
       {children}
     </div>
   );
+};
+
+Fade.propTypes = {
+  show: bool,
+  duration: number,
+  auto: number,
+  children: oneOfType([element, arrayOf(element)]),
 };
 
 export default Fade;

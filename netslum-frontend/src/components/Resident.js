@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 const Resident = ({
   src,
@@ -9,5 +10,9 @@ const Resident = ({
     alt="ilustración residente"
   />
 );
+
+Resident.propTypes = {
+  src: string,
+};
 
 export default Resident;

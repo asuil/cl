@@ -1,4 +1,5 @@
 import React from 'react';
+import { arrayOf, number, string, element, oneOfType } from 'prop-types';
 
 const Text = ({
   size,
@@ -18,6 +19,13 @@ const Text = ({
       {children}
     </div>
   );
+};
+
+Text.propTypes = {
+  size: number,
+  color: string,
+  font: string,
+  children: oneOfType([element, arrayOf(element), string]),
 };
 
 export default Text;

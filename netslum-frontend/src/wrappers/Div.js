@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { arrayOf, bool, element, func, number, oneOfType, string, object } from 'prop-types';
 
 const Div = ({
   bgcolor,
@@ -15,8 +16,8 @@ const Div = ({
   children,
 }) => {
   const [spacingStep] = useState(spacing || 8);
-  const [padding] = useState(p * spacingStep);
-  const [margin] = useState(m * spacingStep);
+  const [padding] = useState(p * spacingStep || false);
+  const [margin] = useState(m * spacingStep || false);
   const [finalStyle] = useState({
     display: flex && 'flex',
     justifyContent: alignRight && 'flex-end',
@@ -50,6 +51,36 @@ const Div = ({
       {children}
     </div>
   );
+};
+
+Div.propTypes = {
+  bgcolor: string,
+  flex: bool,
+  alignRight: bool,
+  onClick: func,
+  p: number,
+  px: number,
+  py: number,
+  pt: number,
+  pb: number,
+  pr: number,
+  pl: number,
+  m: number,
+  mx: number,
+  my: number,
+  mt: number,
+  mb: number,
+  mr: number,
+  ml: number,
+  w: number,
+  h: number,
+  top: bool,
+  bottom: bool,
+  left: bool,
+  right: bool,
+  spacing: number,
+  style: object,
+  children: oneOfType([element, arrayOf(element)]),
 };
 
 export default Div;

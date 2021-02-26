@@ -4,6 +4,7 @@ import Fade from '../wrappers/Fade';
 import Div from '../wrappers/Div';
 import Text from '../wrappers/Text';
 import Icon from '../components/Icon';
+import { arrayOf, func, string } from 'prop-types';
 
 const Dialogue = ({
   dialogues,
@@ -42,6 +43,11 @@ const Dialogue = ({
       </Fade>
     </Div>
   );
+};
+
+Dialogue.propTypes = {
+  dialogues: arrayOf(string),
+  lastAction: func,
 };
 
 export default Dialogue;
