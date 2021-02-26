@@ -1,16 +1,17 @@
-import Slide from "../wrappers/Slide";
-import {Color as c, Direction as d} from "../utils";
-import Div from "../wrappers/Div";
-import Fade from "../wrappers/Fade";
-import Resident from "./Resident";
-import Dialogue from "./Dialogue";
+import React from 'react';
+import Slide from '../wrappers/Slide';
+import { Color as c, Direction as d } from '../utils';
+import Div from '../wrappers/Div';
+import Fade from '../wrappers/Fade';
+import Resident from './Resident';
+import Dialogue from './Dialogue';
 
 const dialogues = [
   'Hola Mundo!',
   'Bienvenidxs al netslum de asuil.cl!',
   'Este espacio existe para manejar información online para tus proyectos de una manera más cómoda y...',
   '¡TOTALMENTE GRATIS!',
-  'Para comenzar solo presiona aquí y regístrate!'
+  'Para comenzar solo presiona aquí y regístrate!',
 ];
 
 const Guide = () => {
@@ -31,6 +32,6 @@ const Guide = () => {
       </Slide>
     </Div>
   );
-}
+};
 
 export default Guide;

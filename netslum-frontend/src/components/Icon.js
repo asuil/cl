@@ -1,4 +1,5 @@
-import Text from "../wrappers/Text";
+import React from 'react';
+import Text from '../wrappers/Text';
 
 const Icon = (props) => (
   <Text {...props}>

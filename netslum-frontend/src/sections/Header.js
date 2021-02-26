@@ -1,8 +1,9 @@
+import React from 'react';
 import { useState } from 'react';
-import Div from "../wrappers/Div";
-import Text from "../wrappers/Text";
+import Div from '../wrappers/Div';
+import Text from '../wrappers/Text';
 
-import {Color as c, Font as f, Netsulm} from "../utils";
+import { Color as c, Font as f, Netsulm } from '../utils';
 
 const Header = () => {
   const [title] = useState(Netsulm());

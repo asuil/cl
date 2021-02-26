@@ -1,7 +1,8 @@
-import Div from "../wrappers/Div";
-import Text from "../wrappers/Text";
+import React from 'react';
+import Div from '../wrappers/Div';
+import Text from '../wrappers/Text';
 
-import { Color as c } from "../utils";
+import { Color as c } from '../utils';
 
 const Footer = () => (
   <Div px={5} py={3} bgcolor={c.BLACK}>

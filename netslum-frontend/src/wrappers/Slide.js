@@ -1,5 +1,6 @@
+import React from 'react';
 import { useState, createRef, useEffect } from 'react';
-import { Direction as d } from "../utils";
+import { Direction as d } from '../utils';
 
 const Slide = ({
   show,
@@ -11,7 +12,7 @@ const Slide = ({
   const [style, setStyle] = useState({
     position: 'relative',
     transition: `${from} 1.5s`,
-    });
+  });
   const slideRef = createRef();
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const Slide = ({
   }, [show, auto]);
 
   useEffect(() => {
-    const newStyle = {...style};
+    const newStyle = { ...style };
     newStyle[from] = position;
     setStyle(newStyle);
   }, [position]);

@@ -1,8 +1,9 @@
-import {useState} from 'react';
-import Fade from "../wrappers/Fade";
-import Div from "../wrappers/Div";
-import Text from "../wrappers/Text";
-import Icon from "../components/Icon";
+import React from 'react';
+import { useState } from 'react';
+import Fade from '../wrappers/Fade';
+import Div from '../wrappers/Div';
+import Text from '../wrappers/Text';
+import Icon from '../components/Icon';
 
 const Dialogue = ({
   dialogues,

@@ -6,34 +6,46 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
   ],
   'parserOptions': {
     'ecmaFeatures': {
-      'jsx': true
+      'jsx': true,
     },
     'ecmaVersion': 12,
-    'sourceType': 'module'
+    'sourceType': 'module',
   },
   'plugins': [
-    'react'
+    'react',
   ],
   'rules': {
     'indent': [
       'error',
-      2
+      2,
     ],
     'linebreak-style': [
       'error',
-      'windows'
+      'windows',
+    ],
+    'object-curly-spacing': [
+      'error',
+      'always',
     ],
     'quotes': [
       'error',
-      'single'
+      'single',
     ],
     'semi': [
       'error',
-      'always'
-    ]
-  }
+      'always',
+    ],
+    'no-trailing-spaces': [
+      'error',
+      {},
+    ],
+    'comma-dangle': [
+      'error',
+      'always-multiline',
+    ],
+  },
 };

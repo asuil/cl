@@ -1,11 +1,12 @@
-import {useEffect, useState} from "react";
+import React from 'react';
+import { useEffect, useState } from 'react';
 
 const Fade = ({
-    show,
-    auto,
-    duration,
-    children,
-  }) => {
+  show,
+  auto,
+  duration,
+  children,
+}) => {
   const [opacity, setOpacity] = useState(show && !auto ? 100 : 0);
 
   useEffect(() => {

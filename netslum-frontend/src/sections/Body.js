@@ -1,6 +1,7 @@
-import Text from "../wrappers/Text";
-import Div from "../wrappers/Div";
-import { Color as c } from "../utils";
+import React from 'react';
+import Text from '../wrappers/Text';
+import Div from '../wrappers/Div';
+import { Color as c } from '../utils';
 
 const Body = () => {
   return (
