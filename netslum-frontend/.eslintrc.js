@@ -20,19 +20,19 @@ module.exports = {
   ],
   'rules': {
     'indent': [
-      'error',
+      'warn',
       2,
     ],
     'linebreak-style': [
-      'error',
+      'warn',
       'windows',
     ],
     'object-curly-spacing': [
-      'error',
+      'warn',
       'always',
     ],
     'quotes': [
-      'error',
+      'warn',
       'single',
     ],
     'semi': [
@@ -40,11 +40,15 @@ module.exports = {
       'always',
     ],
     'no-trailing-spaces': [
-      'error',
+      'warn',
+      {},
+    ],
+    'no-duplicate-imports': [
+      'warn',
       {},
     ],
     'comma-dangle': [
-      'error',
+      'warn',
       'always-multiline',
     ],
   },

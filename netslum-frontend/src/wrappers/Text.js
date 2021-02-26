@@ -1,5 +1,5 @@
+import { arrayOf, element, number, oneOfType, string } from 'prop-types';
 import React from 'react';
-import { arrayOf, number, string, element, oneOfType } from 'prop-types';
 
 const Text = ({
   size,

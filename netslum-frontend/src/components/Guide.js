@@ -1,10 +1,10 @@
 import React from 'react';
-import Slide from '../wrappers/Slide';
 import { Color as c, Direction as d } from '../utils';
 import Div from '../wrappers/Div';
 import Fade from '../wrappers/Fade';
-import Resident from './Resident';
+import Slide from '../wrappers/Slide';
 import Dialogue from './Dialogue';
+import Resident from './Resident';
 
 const dialogues = [
   'Hola Mundo!',

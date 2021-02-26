@@ -1,11 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import { arrayOf, bool, element, func, number, oneOfType, string, object } from 'prop-types';
+import { arrayOf, bool, element, func, number, object, oneOfType, string } from 'prop-types';
+import React, { useState } from 'react';
 
 const Div = ({
   bgcolor,
-  flex,
-  alignRight,
+  flex, alignRight,
   onClick,
   p, px, py, pt, pb, pr, pl,
   m, mx, my, mt, mb, mr, ml,
@@ -55,29 +53,12 @@ const Div = ({
 
 Div.propTypes = {
   bgcolor: string,
-  flex: bool,
-  alignRight: bool,
+  flex: bool, alignRight: bool,
   onClick: func,
-  p: number,
-  px: number,
-  py: number,
-  pt: number,
-  pb: number,
-  pr: number,
-  pl: number,
-  m: number,
-  mx: number,
-  my: number,
-  mt: number,
-  mb: number,
-  mr: number,
-  ml: number,
-  w: number,
-  h: number,
-  top: bool,
-  bottom: bool,
-  left: bool,
-  right: bool,
+  p: number, px: number, py: number, pt: number, pb: number, pr: number, pl: number,
+  m: number, mx: number, my: number, mt: number, mb: number, mr: number, ml: number,
+  w: number, h: number,
+  top: bool, bottom: bool, left: bool, right: bool,
   spacing: number,
   style: object,
   children: oneOfType([element, arrayOf(element)]),

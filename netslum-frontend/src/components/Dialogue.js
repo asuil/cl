@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import Fade from '../wrappers/Fade';
-import Div from '../wrappers/Div';
-import Text from '../wrappers/Text';
-import Icon from '../components/Icon';
 import { arrayOf, func, string } from 'prop-types';
+import React, { useState } from 'react';
+import Icon from '../components/Icon';
+import Div from '../wrappers/Div';
+import Fade from '../wrappers/Fade';
+import Text from '../wrappers/Text';
 
 const Dialogue = ({
   dialogues,

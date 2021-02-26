@@ -1,6 +1,6 @@
+import { string } from 'prop-types';
 import React from 'react';
 import Text from '../wrappers/Text';
-import { string } from 'prop-types';
 
 const Icon = (props) => (
   <Text {...props}>

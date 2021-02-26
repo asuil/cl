@@ -1,6 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
 import { arrayOf, bool, element, number, oneOfType } from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 const Fade = ({
   show,

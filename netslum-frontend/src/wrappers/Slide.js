@@ -1,7 +1,6 @@
-import React from 'react';
-import { useState, createRef, useEffect } from 'react';
-import { Direction as d } from '../utils';
 import { arrayOf, bool, element, number, oneOfType, string } from 'prop-types';
+import React, { createRef, useEffect, useState } from 'react';
+import { Direction as d } from '../utils';
 
 const Slide = ({
   show,
