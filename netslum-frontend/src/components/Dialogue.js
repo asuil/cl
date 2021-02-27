@@ -36,7 +36,7 @@ const Dialogue = ({
             {dialogues[current]}
           </Text>
         </Div>
-        <Div flex alignRight px={1}>
+        <Div alignRight px={1}>
           <Icon name={current !== last ? 'keyboard_arrow_down' : 'keyboard_arrow_right'} />
         </Div>
       </Fade>

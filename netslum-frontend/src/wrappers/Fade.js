@@ -20,7 +20,7 @@ const Fade = ({
   }, [show, auto]);
 
   return (
-    <div aria-label="Fade" style={{ opacity: opacity, transition: `opacity ${duration || 1500}ms` }}>
+    <div aria-label="Fade" style={{ opacity: opacity, transition: `opacity ${duration || 1000}ms` }}>
       {children}
     </div>
   );

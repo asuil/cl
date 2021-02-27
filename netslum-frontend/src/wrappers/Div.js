@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const Div = ({
   bgcolor,
-  flex, alignRight,
+  flex, alignRight, center,
   onClick,
   p, px, py, pt, pb, pr, pl,
   m, mx, my, mt, mb, mr, ml,
@@ -17,8 +17,9 @@ const Div = ({
   const [padding] = useState(p * spacingStep || false);
   const [margin] = useState(m * spacingStep || false);
   const [finalStyle] = useState({
-    display: flex && 'flex',
-    justifyContent: alignRight && 'flex-end',
+    display: (flex || alignRight || center) && 'flex',
+    flexDirection: center && 'column',
+    justifyContent: (alignRight && 'flex-end') || (center && 'center'),
     backgroundColor: bgcolor,
     padding: padding,
     paddingLeft: pl * spacingStep || px * spacingStep || padding,
@@ -53,7 +54,7 @@ const Div = ({
 
 Div.propTypes = {
   bgcolor: string,
-  flex: bool, alignRight: bool,
+  flex: bool, alignRight: bool, center: bool,
   onClick: func,
   p: number, px: number, py: number, pt: number, pb: number, pr: number, pl: number,
   m: number, mx: number, my: number, mt: number, mb: number, mr: number, ml: number,
