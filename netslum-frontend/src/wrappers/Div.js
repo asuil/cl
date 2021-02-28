@@ -14,23 +14,20 @@ const Div = ({
   children,
 }) => {
   const [spacingStep] = useState(spacing || 8);
-  const [padding] = useState(p * spacingStep || false);
-  const [margin] = useState(m * spacingStep || false);
-  const [finalStyle] = useState({
+  const finalStyle = {
     display: (flex || alignRight || center) && 'flex',
     flexDirection: center && 'column',
     justifyContent: (alignRight && 'flex-end') || (center && 'center'),
+    alignItems: center && 'center',
     backgroundColor: bgcolor,
-    padding: padding,
-    paddingLeft: pl * spacingStep || px * spacingStep || padding,
-    paddingRight: pr * spacingStep || px * spacingStep || padding,
-    paddingTop: pt * spacingStep || py * spacingStep || padding,
-    paddingBottom: pb * spacingStep || py * spacingStep || padding,
-    margin: margin,
-    marginLeft: ml * spacingStep || mx * spacingStep || margin,
-    marginRight: mr * spacingStep || mx * spacingStep || margin,
-    marginTop: mt * spacingStep || my * spacingStep || margin,
-    marginBottom: mb * spacingStep || my * spacingStep || margin,
+    paddingLeft: pl * spacingStep || px * spacingStep || p * spacingStep || false,
+    paddingRight: pr * spacingStep || px * spacingStep || p * spacingStep || false,
+    paddingTop: pt * spacingStep || py * spacingStep || p * spacingStep || false,
+    paddingBottom: pb * spacingStep || py * spacingStep || p * spacingStep || false,
+    marginLeft: ml * spacingStep || mx * spacingStep || m * spacingStep || false,
+    marginRight: mr * spacingStep || mx * spacingStep || m * spacingStep || false,
+    marginTop: mt * spacingStep || my * spacingStep || m * spacingStep || false,
+    marginBottom: mb * spacingStep || my * spacingStep || m * spacingStep || false,
     width: w,
     height: h,
     cursor: onClick && 'pointer',
@@ -40,7 +37,7 @@ const Div = ({
     left: !(top || bottom || left || right) || (right ? 'auto' : 0),
     position: (top || bottom || left || right) && 'fixed',
     ...style,
-  });
+  };
   return (
     <div
       aria-label="Div"

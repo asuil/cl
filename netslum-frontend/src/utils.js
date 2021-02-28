@@ -17,6 +17,12 @@ export const Direction = {
   BOTTOM: 'bottom',
 };
 
+export const ImageSize = {
+  SMALL: 100,
+  MEDIUM: 200,
+  BIG: 300,
+};
+
 export const Netsulm = () => {
   const ch3 = Math.random() > 0.6 ? '3' : 'e';
   const ch4 = Math.random() > 0.9 ? '\\' : 't';

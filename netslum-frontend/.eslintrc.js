@@ -51,5 +51,9 @@ module.exports = {
       'warn',
       'always-multiline',
     ],
+    'no-unused-vars': [
+      'warn',
+      {},
+    ],
   },
 };
