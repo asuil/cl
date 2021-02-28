@@ -2,34 +2,49 @@ import { arrayOf, bool, element, number, oneOfType } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 const Fade = ({
-  show,
   auto,
+  initialShow,
+  show,
   duration,
+  delay,
   children,
 }) => {
-  const [opacity, setOpacity] = useState(show && !auto ? 100 : 0);
+  const [opacity, setOpacity] = useState(initialShow ? 100 : 0);
 
   useEffect(() => {
-    if (auto === undefined) {
-      if (show) setOpacity(100);
-      else setOpacity(0);
+    if (show) {
+      setOpacity(100);
     } else {
-      if (auto > 100) setTimeout(() => setOpacity(100), auto);
-      else setOpacity(100);
+      setOpacity(0);
     }
-  }, [show, auto]);
+  }, [show]);
+
+  useEffect(() => {
+    if (auto) setTimeout(() => setOpacity(initialShow ? 0 : 100), delay);
+  }, []);
 
   return (
-    <div aria-label="Fade" style={{ opacity: opacity, transition: `opacity ${duration || 1000}ms` }}>
+    <div
+      aria-label="Fade"
+      style={{
+        opacity: opacity,
+        transitionProperty: 'opacity',
+        transitionDuration: `${duration || 1000}ms`,
+        transitionTimingFunction: 'linear',
+        transitionDelay: `${(!auto && delay) || 0}ms`,
+      }}
+    >
       {children}
     </div>
   );
 };
 
 Fade.propTypes = {
+  auto: bool,
+  initialShow: bool,
   show: bool,
   duration: number,
-  auto: number,
+  delay: number,
   children: oneOfType([element, arrayOf(element)]),
 };
 

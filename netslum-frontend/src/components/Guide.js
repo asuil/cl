@@ -17,7 +17,7 @@ const Guide = () => {
   return (
     <Div flex>
       <Div center>
-        <Fade auto={1200}>
+        <Fade auto delay={500}>
           <Div bgcolor={c.BLACK} w={250}>
             <Dialogue
               dialogues={dialogues}
@@ -26,7 +26,7 @@ const Guide = () => {
           </Div>
         </Fade>
       </Div>
-      <Fade auto={200}>
+      <Fade auto>
         <Resident src="r0"/>
       </Fade>
     </Div>

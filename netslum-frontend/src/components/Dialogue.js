@@ -30,7 +30,7 @@ const Dialogue = ({
 
   return (
     <Div onClick={() => current === last ? lastAction() : manageClick()}>
-      <Fade show={showDialogue} duration={200}>
+      <Fade initialShow show={showDialogue} duration={200}>
         <Div px={3} pt={2}>
           <Text>
             {dialogues[current]}
