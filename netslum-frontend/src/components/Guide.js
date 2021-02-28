@@ -1,7 +1,8 @@
 import React from 'react';
-import { Color as c } from '../utils';
+import { Color as c, Direction as d } from '../utils';
 import Div from '../wrappers/Div';
 import Fade from '../wrappers/Fade';
+import Slide from '../wrappers/Slide';
 import Dialogue from './Dialogue';
 import Resident from './Resident';
 
@@ -17,18 +18,22 @@ const Guide = () => {
   return (
     <Div flex>
       <Div center>
-        <Fade auto delay={500}>
-          <Div bgcolor={c.BLACK} w={250}>
-            <Dialogue
-              dialogues={dialogues}
-              lastAction={() => {}}
-            />
-          </Div>
-        </Fade>
+        <Slide auto delay={800} from={d.RIGHT}>
+          <Fade auto delay={800}>
+            <Div bgcolor={c.BLACK} w={250}>
+              <Dialogue
+                dialogues={dialogues}
+                lastAction={() => {}}
+              />
+            </Div>
+          </Fade>
+        </Slide>
       </Div>
-      <Fade auto>
-        <Resident src="r0"/>
-      </Fade>
+      <Slide auto from={d.RIGHT}>
+        <Fade auto>
+          <Resident src="r0"/>
+        </Fade>
+      </Slide>
     </Div>
   );
 };

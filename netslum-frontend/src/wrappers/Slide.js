@@ -1,18 +1,17 @@
 import { arrayOf, bool, element, number, oneOfType, string } from 'prop-types';
 import React, { createRef, useEffect, useState } from 'react';
-import { Direction as d } from '../utils';
+import { addDynamicKeyToObject, Direction as d } from '../utils';
 
 const Slide = ({
-  show,
   from,
   auto,
+  initialShow,
+  show,
+  duration,
+  delay,
   children,
 }) => {
-  const [position, setPosition] = useState(show && !auto ? 0 : -1000);
-  const [style, setStyle] = useState({
-    position: 'relative',
-    transition: `${from} 1.5s`,
-  });
+  const [position, setPosition] = useState(initialShow ? 0 : -300);
   const slideRef = createRef();
 
   const out = () => (
@@ -22,26 +21,35 @@ const Slide = ({
   );
 
   useEffect(() => {
-    if (slideRef.current) {
-      if (auto === undefined) {
-        if (show) setPosition(0);
-        else setPosition(out());
+    if (show !== undefined) {
+      if (show) {
+        setPosition(0);
       } else {
         setPosition(out());
-        setTimeout(() => setPosition(0), auto);
       }
     }
-  }, [show, auto]);
+  }, [show]);
 
   useEffect(() => {
-    const newStyle = { ...style };
-    newStyle[from] = position;
-    setStyle(newStyle);
-  }, [position]);
+    if (auto) setTimeout(() => setPosition(initialShow ? -500 : 0), delay);
+  }, []);
 
   return (
-    <div aria-label="outerSlide" style={{ overflow: 'hidden' }}>
-      <div aria-label="innerSlide" ref={slideRef} style={style}>
+    <div
+      aria-label="outerSlide"
+      style={{ overflow: 'hidden' }}
+    >
+      <div
+        aria-label="innerSlide"
+        ref={slideRef}
+        style={addDynamicKeyToObject(from, position, {
+          position: 'relative',
+          transitionProperty: from,
+          transitionDuration: `${duration || 1000}ms`,
+          transitionTimingFunction: 'ease',
+          transitionDelay: `${(!auto && delay) || 0}ms`,
+        })}
+      >
         {children}
       </div>
     </div>
@@ -49,9 +57,12 @@ const Slide = ({
 };
 
 Slide.propTypes = {
-  show: bool,
   from: string,
-  auto: number,
+  auto: bool,
+  initialShow: bool,
+  show: bool,
+  duration: number,
+  delay: number,
   children: oneOfType([element, arrayOf(element)]),
 };
 

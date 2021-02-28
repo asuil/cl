@@ -24,3 +24,9 @@ export const Netsulm = () => {
   const ch7 = Math.random() > 0.7 ? '¿' : 'u';
   return `./n${ch3}${ch4}s${ch6}${ch7}m`;
 };
+
+export const addDynamicKeyToObject = (key, value, obj) => {
+  const newObj = { ...obj };
+  newObj[key] = value;
+  return newObj;
+};

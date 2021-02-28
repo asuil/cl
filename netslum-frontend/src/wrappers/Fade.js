@@ -12,10 +12,12 @@ const Fade = ({
   const [opacity, setOpacity] = useState(initialShow ? 100 : 0);
 
   useEffect(() => {
-    if (show) {
-      setOpacity(100);
-    } else {
-      setOpacity(0);
+    if (show !== undefined) {
+      if (show) {
+        setOpacity(100);
+      } else {
+        setOpacity(0);
+      }
     }
   }, [show]);
 
@@ -29,7 +31,7 @@ const Fade = ({
       style={{
         opacity: opacity,
         transitionProperty: 'opacity',
-        transitionDuration: `${duration || 1000}ms`,
+        transitionDuration: `${duration || 800}ms`,
         transitionTimingFunction: 'linear',
         transitionDelay: `${(!auto && delay) || 0}ms`,
       }}
