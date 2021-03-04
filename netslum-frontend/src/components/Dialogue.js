@@ -1,5 +1,5 @@
 import { arrayOf, func, string } from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '../components/Icon';
 import Div from '../wrappers/Div';
 import Fade from '../wrappers/Fade';
@@ -14,15 +14,26 @@ const Dialogue = ({
   const [loading, setLoading] = useState(false);
   const [last] = useState(dialogues.length - 1);
 
+  const currentTimers = [];
+
+  useEffect(() => (
+    () => {
+      clearTimeout(currentTimers[0]);
+      clearTimeout(currentTimers[1]);
+    }
+  ), []);
+
   const manageClick = () => {
     if (!loading) {
       setLoading(true);
       setShowDialogue(false);
-      setTimeout(() => {
+
+      currentTimers[0] = setTimeout(() => {
         setCurrent(current + 1);
         setShowDialogue(true);
       }, 200);
-      setTimeout(() => {
+
+      currentTimers[1] = setTimeout(() => {
         setLoading(false);
       }, 400);
     }

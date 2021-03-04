@@ -31,7 +31,10 @@ const Slide = ({
   }, [show]);
 
   useEffect(() => {
-    if (auto) setTimeout(() => setPosition(initialShow ? -500 : 0), delay);
+    if (auto) {
+      const timer = setTimeout(() => setPosition(initialShow ? -500 : 0), delay);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (

@@ -22,7 +22,10 @@ const Fade = ({
   }, [show]);
 
   useEffect(() => {
-    if (auto) setTimeout(() => setOpacity(initialShow ? 0 : 100), delay);
+    if (auto) {
+      const timer = setTimeout(() => setOpacity(initialShow ? 0 : 100), delay);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
