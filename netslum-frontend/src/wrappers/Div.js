@@ -55,7 +55,7 @@ Div.propTypes = {
   onClick: func,
   p: number, px: number, py: number, pt: number, pb: number, pr: number, pl: number,
   m: number, mx: number, my: number, mt: number, mb: number, mr: number, ml: number,
-  w: number, h: number,
+  w: oneOfType([number, string]), h: oneOfType([number, string]),
   top: bool, bottom: bool, left: bool, right: bool,
   spacing: number,
   style: object,
