@@ -1,6 +1,6 @@
 import { arrayOf, func, string } from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import Icon from '../components/Icon';
+import Icon from './Icon';
 import Div from '../wrappers/Div';
 import Fade from '../wrappers/Fade';
 import Text from '../wrappers/Text';
@@ -40,7 +40,7 @@ const Dialogue = ({
   };
 
   return (
-    <Div onClick={() => current === last ? lastAction() : manageClick()}>
+    <Div onClick={() => (current === last ? lastAction() : manageClick())}>
       <Fade initialShow show={showDialogue} duration={200}>
         <Div px={3} pt={2}>
           <Text>
@@ -58,6 +58,11 @@ const Dialogue = ({
 Dialogue.propTypes = {
   dialogues: arrayOf(string),
   lastAction: func,
+};
+
+Dialogue.defaultProps = {
+  dialogues: [],
+  lastAction: () => {},
 };
 
 export default Dialogue;

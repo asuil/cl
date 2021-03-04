@@ -1,4 +1,6 @@
-import { arrayOf, bool, element, func, number, object, oneOfType, string } from 'prop-types';
+import {
+  arrayOf, bool, element, func, number, oneOfType, string, objectOf,
+} from 'prop-types';
 import React, { useState } from 'react';
 
 const Div = ({
@@ -38,28 +40,88 @@ const Div = ({
     position: (top || bottom || left || right) && 'fixed',
     ...style,
   };
-  return (
-    <div
-      aria-label="Div"
-      style={finalStyle}
-      onClick={onClick}
-    >
-      {children}
-    </div>
-  );
+  return onClick
+    ? (
+      <div
+        aria-label="Div"
+        style={finalStyle}
+        onClick={onClick}
+        onKeyDown={onClick}
+        tabIndex={0}
+        role="button"
+      >
+        {children}
+      </div>
+    ) : (
+      <div
+        aria-label="Div"
+        style={finalStyle}
+      >
+        {children}
+      </div>
+    );
 };
 
 Div.propTypes = {
   bgcolor: string,
-  flex: bool, alignRight: bool, center: bool,
+  flex: bool,
+  alignRight: bool,
+  center: bool,
   onClick: func,
-  p: number, px: number, py: number, pt: number, pb: number, pr: number, pl: number,
-  m: number, mx: number, my: number, mt: number, mb: number, mr: number, ml: number,
-  w: oneOfType([number, string]), h: oneOfType([number, string]),
-  top: bool, bottom: bool, left: bool, right: bool,
+  p: number,
+  px: number,
+  py: number,
+  pt: number,
+  pb: number,
+  pr: number,
+  pl: number,
+  m: number,
+  mx: number,
+  my: number,
+  mt: number,
+  mb: number,
+  mr: number,
+  ml: number,
+  w: oneOfType([number, string]),
+  h: oneOfType([number, string]),
+  top: bool,
+  bottom: bool,
+  left: bool,
+  right: bool,
   spacing: number,
-  style: object,
+  style: objectOf(),
   children: oneOfType([element, arrayOf(element)]),
+};
+
+Div.defaultProps = {
+  bgcolor: undefined,
+  flex: undefined,
+  alignRight: undefined,
+  center: undefined,
+  onClick: undefined,
+  p: undefined,
+  px: undefined,
+  py: undefined,
+  pt: undefined,
+  pb: undefined,
+  pr: undefined,
+  pl: undefined,
+  m: undefined,
+  mx: undefined,
+  my: undefined,
+  mt: undefined,
+  mb: undefined,
+  mr: undefined,
+  ml: undefined,
+  w: undefined,
+  h: undefined,
+  top: undefined,
+  bottom: undefined,
+  left: undefined,
+  right: undefined,
+  spacing: undefined,
+  style: undefined,
+  children: undefined,
 };
 
 export default Div;

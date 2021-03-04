@@ -1,4 +1,6 @@
-import { arrayOf, bool, element, number, oneOfType, string } from 'prop-types';
+import {
+  arrayOf, bool, element, number, oneOfType, string,
+} from 'prop-types';
 import React, { createRef, useEffect, useState } from 'react';
 import { addDynamicKeyToObject, Direction as d } from '../utils';
 
@@ -16,8 +18,8 @@ const Slide = ({
 
   const out = () => (
     (from === d.RIGHT || from === d.LEFT)
-      ? - (slideRef.current.clientWidth + 10)
-      : - (slideRef.current.clientHeight + 10)
+      ? -(slideRef.current.clientWidth + 10)
+      : -(slideRef.current.clientHeight + 10)
   );
 
   useEffect(() => {
@@ -35,6 +37,7 @@ const Slide = ({
       const timer = setTimeout(() => setPosition(initialShow ? -500 : 0), delay);
       return () => clearTimeout(timer);
     }
+    return () => {};
   }, []);
 
   return (
@@ -48,9 +51,9 @@ const Slide = ({
         style={addDynamicKeyToObject(from, position, {
           position: 'relative',
           transitionProperty: from,
-          transitionDuration: `${duration || 1000}ms`,
+          transitionDuration: `${duration}ms`,
           transitionTimingFunction: 'ease',
-          transitionDelay: `${(!auto && delay) || 0}ms`,
+          transitionDelay: (auto && 0) || `${delay}ms`,
         })}
       >
         {children}
@@ -66,7 +69,16 @@ Slide.propTypes = {
   show: bool,
   duration: number,
   delay: number,
-  children: oneOfType([element, arrayOf(element)]),
+  children: oneOfType([element, arrayOf(element)]).isRequired,
+};
+
+Slide.defaultProps = {
+  from: d.LEFT,
+  auto: undefined,
+  initialShow: undefined,
+  show: undefined,
+  duration: 1000,
+  delay: 0,
 };
 
 export default Slide;

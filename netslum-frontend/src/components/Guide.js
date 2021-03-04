@@ -1,11 +1,11 @@
 import React from 'react';
+import { bool } from 'prop-types';
 import { Color as c, Direction as d, ImageSize as is } from '../utils';
 import Div from '../wrappers/Div';
 import Fade from '../wrappers/Fade';
 import Slide from '../wrappers/Slide';
 import Dialogue from './Dialogue';
 import Resident from './Resident';
-import { bool } from 'prop-types';
 
 const dialogues = [
   'Hola Mundo!',
@@ -18,11 +18,10 @@ const dialogues = [
 const MyDialogue = ({
   mobile,
 }) => (
-  <Fade auto delay={800}>
+  <Fade auto delay={500}>
     <Div bgcolor={c.BLACK} w={mobile ? 280 : 250}>
       <Dialogue
         dialogues={dialogues}
-        lastAction={() => {}}
       />
     </Div>
   </Fade>
@@ -30,6 +29,10 @@ const MyDialogue = ({
 
 MyDialogue.propTypes = {
   mobile: bool,
+};
+
+MyDialogue.defaultProps = {
+  mobile: false,
 };
 
 const MyResident = ({
@@ -44,8 +47,14 @@ MyResident.propTypes = {
   mobile: bool,
 };
 
-const Guide = ({ mobile }) => {
-  return mobile
+MyResident.defaultProps = {
+  mobile: false,
+};
+
+const Guide = ({
+  mobile,
+}) => (
+  mobile
     ? (
       <Div center>
         <MyResident mobile={mobile} />
@@ -54,7 +63,7 @@ const Guide = ({ mobile }) => {
     ) : (
       <Div flex>
         <Div center>
-          <Slide auto delay={800} from={d.RIGHT}>
+          <Slide auto delay={500} from={d.RIGHT}>
             <MyDialogue mobile={mobile} />
           </Slide>
         </Div>
@@ -62,11 +71,15 @@ const Guide = ({ mobile }) => {
           <MyResident mobile={mobile} />
         </Slide>
       </Div>
-    );
-};
+    )
+);
 
 Guide.propTypes = {
   mobile: bool,
+};
+
+Guide.defaultProps = {
+  mobile: false,
 };
 
 export default Guide;

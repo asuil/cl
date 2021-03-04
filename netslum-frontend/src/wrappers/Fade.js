@@ -1,4 +1,6 @@
-import { arrayOf, bool, element, number, oneOfType } from 'prop-types';
+import {
+  arrayOf, bool, element, number, oneOfType,
+} from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 const Fade = ({
@@ -26,17 +28,18 @@ const Fade = ({
       const timer = setTimeout(() => setOpacity(initialShow ? 0 : 100), delay);
       return () => clearTimeout(timer);
     }
+    return () => {};
   }, []);
 
   return (
     <div
       aria-label="Fade"
       style={{
-        opacity: opacity,
+        opacity,
         transitionProperty: 'opacity',
-        transitionDuration: `${duration || 800}ms`,
+        transitionDuration: `${duration}ms`,
         transitionTimingFunction: 'linear',
-        transitionDelay: `${(!auto && delay) || 0}ms`,
+        transitionDelay: (auto && 0) || `${delay}ms`,
       }}
     >
       {children}
@@ -50,7 +53,15 @@ Fade.propTypes = {
   show: bool,
   duration: number,
   delay: number,
-  children: oneOfType([element, arrayOf(element)]),
+  children: oneOfType([element, arrayOf(element)]).isRequired,
+};
+
+Fade.defaultProps = {
+  auto: undefined,
+  initialShow: undefined,
+  show: undefined,
+  duration: 800,
+  delay: 0,
 };
 
 export default Fade;

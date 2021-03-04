@@ -17,4 +17,9 @@ Resident.propTypes = {
   size: number,
 };
 
+Resident.defaultProps = {
+  src: 'r0',
+  size: undefined,
+};
+
 export default Resident;

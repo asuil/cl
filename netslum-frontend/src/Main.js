@@ -13,9 +13,9 @@ const Main = () => {
   return (
     <Text color={c.WHITE} font={f.REGULAR}>
       <Body mobile={mobile} />
-      <Footer/>
+      <Footer />
       <Div top>
-        <Header/>
+        <Header />
       </Div>
       {mobile
         ? (
