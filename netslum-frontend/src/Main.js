@@ -12,7 +12,7 @@ const Main = () => {
   const [mobile] = useIsMobile(600);
   return (
     <Text color={c.WHITE} font={f.REGULAR}>
-      <Body/>
+      <Body mobile={mobile} />
       <Footer/>
       <Div top>
         <Header/>
@@ -22,7 +22,7 @@ const Main = () => {
           <div />
         ) : (
           <Div right bottom p={5}>
-            <Guide/>
+            <Guide mobile={mobile} />
           </Div>
         )
       }

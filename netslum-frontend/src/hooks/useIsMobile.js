@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useViewportWidth from './useViewportWidth';
 
-const useIsMobile = (limit, getWidth) => {
+const useIsMobile = (limit) => {
   const [isMobile, setIsMobile] = useState(false);
   const width = useViewportWidth();
 
@@ -9,7 +9,7 @@ const useIsMobile = (limit, getWidth) => {
     if (width < limit !== isMobile) setIsMobile(width < limit);
   }, [width]);
 
-  return getWidth ? [isMobile, width] : [isMobile];
+  return  [isMobile];
 };
 
 export default useIsMobile;

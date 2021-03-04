@@ -24,11 +24,10 @@ export const ImageSize = {
 };
 
 export const Netsulm = () => {
-  const ch3 = Math.random() > 0.6 ? '3' : 'e';
-  const ch4 = Math.random() > 0.9 ? '\\' : 't';
-  const ch6 = Math.random() > 0.9 ? '!' : 'l';
-  const ch7 = Math.random() > 0.7 ? '¿' : 'u';
-  return `./n${ch3}${ch4}s${ch6}${ch7}m`;
+  const e = Math.random() > 0.9 ? '3' : 'e';
+  const l = Math.random() > 0.6 ? '!' : 'l';
+  const u = Math.random() > 0.7 ? '¿' : 'u';
+  return `./n${e}ts${l}${u}m`;
 };
 
 export const addDynamicKeyToObject = (key, value, obj) => {

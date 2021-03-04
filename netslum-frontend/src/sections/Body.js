@@ -4,9 +4,9 @@ import useIsMobile from '../hooks/useIsMobile';
 import { Color as c } from '../utils';
 import Div from '../wrappers/Div';
 import Text from '../wrappers/Text';
+import { bool } from 'prop-types';
 
-const Body = () => {
-  const [mobile] = useIsMobile(600);
+const Body = ({ mobile }) => {
   const [tooSmall] = useIsMobile(300);
 
   return tooSmall
@@ -20,7 +20,7 @@ const Body = () => {
       <Div px={mobile ? 0 : 6} py={16} bgcolor={c.SOFT_BROWN}>
         {mobile
           ? (
-            <Guide />
+            <Guide mobile={mobile} />
           ) : (
             <Text size={3}>
               contenido
@@ -29,6 +29,10 @@ const Body = () => {
         }
       </Div>
     );
+};
+
+Body.propTypes = {
+  mobile: bool,
 };
 
 export default Body;
