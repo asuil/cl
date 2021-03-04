@@ -6,6 +6,7 @@ import Fade from '../wrappers/Fade';
 import Slide from '../wrappers/Slide';
 import Dialogue from './Dialogue';
 import Resident from './Resident';
+import { bool, number } from 'prop-types';
 
 const dialogues = [
   'Hola Mundo!',
@@ -15,41 +16,64 @@ const dialogues = [
   'Para comenzar solo presiona aquí y regístrate!',
 ];
 
+const MyDialogue = ({
+  mobile,
+  width,
+}) => (
+  <Fade auto delay={800}>
+    <Div bgcolor={c.BLACK} w={mobile ? width * 0.9 : 250}>
+      <Dialogue
+        dialogues={dialogues}
+        lastAction={() => {}}
+      />
+    </Div>
+  </Fade>
+);
+
+MyDialogue.propTypes = {
+  mobile: bool,
+  width: number,
+};
+
+const MyResident = ({
+  mobile,
+}) => (
+  <Fade auto>
+    <Resident src="r0" size={mobile ? is.BIG : is.MEDIUM} />
+  </Fade>
+);
+
+MyResident.propTypes = {
+  mobile: bool,
+};
+
 const Guide = () => {
-  const [mobile, width] = useIsMobile(600);
-
-  const MyDialogue = () => (
-    <Fade auto delay={800}>
-      <Div bgcolor={c.BLACK} w={mobile ? width * 0.9 : 250}>
-        <Dialogue
-          dialogues={dialogues}
-          lastAction={() => {}}
-        />
-      </Div>
-    </Fade>
-  );
-
-  const MyResident = () => (
-    <Fade auto>
-      <Resident src="r0" size={mobile ? is.BIG : is.MEDIUM} />
-    </Fade>
-  );
+  const [mobile, width] = useIsMobile(600, 1);
 
   return mobile
     ? (
       <Div center>
-        <MyResident />
-        <MyDialogue />
+        <MyResident
+          mobile={mobile}
+        />
+        <MyDialogue
+          mobile={mobile}
+          width={width}
+        />
       </Div>
     ) : (
       <Div flex>
         <Div center>
           <Slide auto delay={800} from={d.RIGHT}>
-            <MyDialogue />
+            <MyDialogue
+              mobile={mobile}
+            />
           </Slide>
         </Div>
         <Slide auto from={d.RIGHT}>
-          <MyResident />
+          <MyResident
+            mobile={mobile}
+          />
         </Slide>
       </Div>
     );
