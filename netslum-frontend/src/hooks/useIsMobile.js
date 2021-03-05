@@ -9,7 +9,7 @@ const useIsMobile = (limit) => {
     if (width < limit !== isMobile) setIsMobile(width < limit);
   }, [width]);
 
-  return  [isMobile];
+  return [isMobile];
 };
 
 export default useIsMobile;

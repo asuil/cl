@@ -1,10 +1,15 @@
 import React from 'react';
 import { bool } from 'prop-types';
-import Guide from '../components/Guide';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import useIsMobile from '../hooks/useIsMobile';
 import { Color as c } from '../utils';
 import Div from '../wrappers/Div';
 import Text from '../wrappers/Text';
+import Index from '../pages/Index';
 
 const Body = ({ mobile }) => {
   const [tooSmall] = useIsMobile(300);
@@ -18,17 +23,16 @@ const Body = ({ mobile }) => {
         </Text>
       </Div>
     ) : (
-      <Div px={mobile ? 0 : 6} py={16} bgcolor={c.SOFT_BROWN}>
-        {mobile
-          ? (
-            <Guide mobile={mobile} />
-          ) : (
-            <Text size={3}>
-              contenido
-            </Text>
-          )
-        }
-      </Div>
+      <Router>
+        <Switch>
+          <Route path="/long">
+            <Div h="200vh" />
+          </Route>
+          <Route path="/">
+            <Index mobile={mobile} />
+          </Route>
+        </Switch>
+      </Router>
     );
 };
 

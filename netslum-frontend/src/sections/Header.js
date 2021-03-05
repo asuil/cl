@@ -6,7 +6,7 @@ import Text from '../wrappers/Text';
 const Header = () => {
   const [title] = useState(Netsulm());
   return (
-    <Div bgcolor={c.BROWN} px={3} py={2}>
+    <Div top bgcolor={c.BROWN} px={3} py={2}>
       <Text size={2} font={f.MONOSPACE}>
         {title}
       </Text>

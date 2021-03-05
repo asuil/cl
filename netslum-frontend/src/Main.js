@@ -14,9 +14,7 @@ const Main = () => {
     <Text color={c.WHITE} font={f.REGULAR}>
       <Body mobile={mobile} />
       <Footer />
-      <Div top>
-        <Header />
-      </Div>
+      <Header />
       {mobile
         ? (
           <div />
