@@ -7,7 +7,7 @@ const logger = require('morgan');
 const helloWorld = require('./routes/helloWorld');
 
 const routes = [
-  ['/hello-world', helloWorld],
+  ['/hola-mundo', helloWorld],
 ];
 
 const app = express();
