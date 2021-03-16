@@ -1,8 +1,12 @@
 const express = require('express');
+const db = require('../utils/DB');
 
 const router = express.Router();
 router.get('/', (req, res) => {
-  res.send('Hola Mundo!');
+  db({
+    onSuccess: () => { res.send('Conectado!'); },
+    onFailure: (err) => { res.send(`:(\n${err}`); },
+  });
 });
 
 module.exports = router;
